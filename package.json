@@ -1,0 +1,17 @@
+{
+  "name": "vue2-util",
+  "version": "1.0.0",
+  "description": "A mobile util plugin for vue2.",
+  "keywords":["vue.js","vue-plugin","util"],
+  "main": "index.js",
+  "bugs": {  
+  	"url": "https://github.com/caojiahai/Util/issues",
+  	"email": "1041630444@qq.com"
+  },
+  "repository": {
+  	"type": "git",
+  	"url": "https://github.com/caojiahai/Util.git"
+  },
+  "author": "caojiahai",
+  "license": "ISC"
+}
