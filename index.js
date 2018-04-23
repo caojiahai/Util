@@ -8,6 +8,7 @@ Util.install = function(Vue, options){
 	
 	Util.prototype.$alertMsg = function(tips){
 		alert(tips)
+		return Vue.prototype.$alertMsg(tips)
 	}
 }
 
