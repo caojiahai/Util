@@ -1,5 +1,5 @@
 {
-  "name": "vue2-util",
+  "name": "vue-util",
   "version": "1.0.0",
   "description": "A mobile util plugin for vue2.",
   "keywords":["vue.js","vue-plugin","util"],
