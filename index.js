@@ -71,13 +71,13 @@ Util.install = function(Vue, options) {
 	//正则校验手机号
 	Vue.prototype.$isTel = function(tips) {
 		var pattern = /^(13[0-9]|14[57]|15[012356789]|17[013678]|18[0-9]|199)\d{8}$/;
-		return pattern.test(str);
+		return pattern.test(tips);
 	}
 
 	//通过正则校验6位数字，例如验证码
 	Vue.prototype.$isCode = function(tips) {
 		var reg = /^\d{6}$/;
-		return reg.test(str)
+		return reg.test(tips)
 	}
 
 }
