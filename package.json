@@ -1,6 +1,6 @@
 {
   "name": "vue-util",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A mobile util plugin for vue2.",
   "keywords":["vue.js","vue-plugin","util"],
   "main": "index.js",

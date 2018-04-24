@@ -4,7 +4,7 @@
 
 var Util = {};
 
-Util.install = function(Vue, options){
+Util.install = function(Vue, options) {
 
 	//处理url
 	const curl = url => {
@@ -13,7 +13,7 @@ Util.install = function(Vue, options){
 		else
 			return url;
 	}
-	
+
 	//ajax 对象
 	const ajaxObject = function() {
 		var xmlHttp;
@@ -33,28 +33,28 @@ Util.install = function(Vue, options){
 		}
 		return xmlHttp;
 	}
-	
+
 	//http请求
-	Vue.prototype.$ajax = function(url, data, fnSucceed, fnFail, method = 'POST'){
+	Vue.prototype.$ajax = function(url, data, fnSucceed, fnFail, method = 'POST') {
 		var ajaxData = ajaxObject();
-		if(!navigator.onLine){
+		if(!navigator.onLine) {
 			fnFail('Network disconnection!')
 			return;
 		}
-		ajaxData.timeout = 10000;  
-		ajaxData.ontimeout = function(event){  
+		ajaxData.timeout = 10000;
+		ajaxData.ontimeout = function(event) {
 			fnFail('Request timeout!')
 			return;
-		} 
-		if(!url){
+		}
+		if(!url) {
 			return;
 		}
-		if(url.indexOf('up.qiniu.com')!=-1){
+		if(url.indexOf('up.qiniu.com') != -1) {
 			ajaxData.open(method, curl(url));
-		}else{
+		} else {
 			ajaxData.open(method, curl(url), true);
 			ajaxData.setRequestHeader("Content-Type", "application/json");
-			ajaxData.withCredentials = false; 
+			ajaxData.withCredentials = false;
 		}
 		ajaxData.onreadystatechange = function() {
 			if(ajaxData.readyState == 4) {
@@ -67,10 +67,19 @@ Util.install = function(Vue, options){
 		}
 		ajaxData.send(data);
 	}
-	
+
+	//正则校验手机号
+	Vue.prototype.$isTel = function(tips) {
+		var pattern = /^(13[0-9]|14[57]|15[012356789]|17[013678]|18[0-9]|199)\d{8}$/;
+		return pattern.test(str);
+	}
+
+	//通过正则校验6位数字，例如验证码
+	Vue.prototype.$isCode = function(tips) {
+		var reg = /^\d{6}$/;
+		return reg.test(str)
+	}
+
 }
 
 module.exports = Util;
-
-
-
